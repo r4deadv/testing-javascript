@@ -1,8 +1,8 @@
-const { sumAsync, subtractAsync } = require("../math");
+const { sumAsync, subtractAsync } = require("../../math");
 
 test("sumAsync adds numbers asynchronously", async () => {
-  const result = await sumAsync(3, 7);
-  const expected = 10;
+  const result = await sumAsync(5, 2);
+  const expected = 7;
   expect(result).toBe(expected);
 });
 
@@ -17,7 +17,7 @@ async function test(title, callback) {
     await callback();
     console.log(`✓ ${title}`);
   } catch (error) {
-    console.error(`✕ ${title}`);
+    console.error(`✗ ${title}`);
     console.error(error);
   }
 }
@@ -29,5 +29,7 @@ function expect(actual) {
         throw new Error(`${actual} is not equal to ${expected}`);
       }
     },
+    toEqual(expected) {},
+    toBeGreaterThan(expected) {},
   };
 }
